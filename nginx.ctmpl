@@ -42,15 +42,14 @@ server {
 
 {{ range $service := services }}
 
-{{ if $service.Name | regexMatch "^web/.+" }}
-{{ with $server := $service.Tags | join "," | regexReplaceAll "(.*)" "{$1}" | parseJSON }}
+{{ if eq $service.Tags "proxy_nginx" }} 
 
-upstream {{ $server.Name }} {
-        {{ range $serviceItem := service $service.Name }}
+upstream {{ $service.Name }} {
+         
 
-        server {{ $serviceItem.Address }}:{{ $serviceItem.Port }};
+        server {{ $service.Address }}:{{ $service.Port }};
 
-        {{ end }}
+        
 }
 
 {{ $is_https := env "IS_HTTPS" }}

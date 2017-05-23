@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    image: 192.168.151.252/library/nginx-consul-template
+    ports:
+      - 80:80 
+    deploy:
+      mode: global 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
+    
+
+

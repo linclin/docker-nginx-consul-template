@@ -1,22 +1,19 @@
-FROM nginx:1.10.1-alpine
+#docker build -t  192.168.151.252/library/nginx-consul-template .
+FROM nginx:1.13.0-alpine
 
-MAINTAINER Vladimir Dmitrovskiy "vladimir@tep.io"
+MAINTAINER Linc "13579443@qq.com" 
 
-ENV CONSUL_TEMPLATE_VERSION=0.16.0
-
-RUN apk add --update --virtual tobedeleted \
-    wget \
-    unzip
-
-RUN wget --no-check-certificate https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip && \
-    unzip consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip -d /usr/local/bin
-
-#cleaning up
-RUN apk del --purge tobedeleted && \
-    rm ./consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
+RUN apk add  --no-cache  --update --virtual tobedeleted   unzip curl bash tree tzdata ; \
+    echo "Asia/Shanghai" > /etc/timezone ; \
+    cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ; \
+    apk del --purge tobedeleted ; \
+    rm -rf  /tmp/* /var/cache/*  /var/tmp/*  
+    
 
 COPY . /app/
-WORKDIR /app/
+
+RUN unzip /app/consul-template_0.18.3_linux_amd64.zip -d /usr/local/bin ; \
+    rm /app/consul-template_0.18.3_linux_amd64.zip
 
 EXPOSE 80 443
 

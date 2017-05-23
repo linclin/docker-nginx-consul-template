@@ -1,15 +1,11 @@
 # Docker consul-template&nginx reverse proxy
 
-Inspired by [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy)   
-This solution is intended to be used with [Swarm Cluster](https://docs.docker.com/swarm/install-manual/)   
+ 
+This solution is intended to be used with [Swarm Mode](https://docs.docker.com/engine/swarm/)   
 [Consul-Template](https://github.com/hashicorp/consul-template) is used for listening [Consul](https://github.com/hashicorp/consul) events and generating nginx config   
 
 ## Usage
-
-To run it, you need to have next environment:
-
-- [Consul](https://github.com/hashicorp/consul), [DockerHub](https://hub.docker.com/_/consul/)
-- [Registrator](https://github.com/gliderlabs/registrator), [DockerHub](https://hub.docker.com/r/gliderlabs/registrator/)
+ 
 
 When requirements are satisfied, run this:
 
@@ -19,10 +15,8 @@ docker run -d \
     --restart always \
     --name proxy \
     -p 80:80 \
-    -e CONSUL_ADDR=$(docker-machine ip local-consul) \
-    -e "constraint:type==public"
-    --network public \
-    dmitrovskiy/docker-nginx-consul-template:1.10.1-0.16.0-alpine
+    -e CONSUL_ADDR={consul IP} \
+    docker-nginx-consul-template 
 ```
 
 An image exposes as 80, as 443(https)
@@ -37,30 +31,37 @@ An image exposes as 80, as 443(https)
 ### Running services
 
 ```yaml
-version: "2"
+version: '3'
 services:
-    app:
-        image: nginx
-        ports:
-            - 80
-        environment:
-            - 'SERVICE_80_NAME=web/app'
-            - 'SERVICE_80_TAGS="Name":"app.local"'
-            - 'constraint:type==app'
-        networks:
-            - public
-networks:
-    public:
-        external: true
+  nginx:
+    image: 192.168.151.252/library/nginx-consul-template
+    ports:
+      - 80:80 
+    deploy:
+      mode: global 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
 ```
-
-Running a service, there are some points which need to consider:
-
-- You should declare service ports which are needed to be proxy reversed
-- Each Docker-Compose service port is a separate service for Consul, so use `SERVICE_$PORT` prefix
-- `SERVICE_80_NAME` - consul service name declaration. Should have `web/` prefix
-- `SERVICE_80_TAGS` - consul service tags. 
-This solution is used to declare JSON options. Currently only `Name` supported which is needed for server domain definition
-
-## Contributing
-If you any ideas or PR, I would be happy to disscuss it! :)
+### Consul services
+```json
+{
+"service": {
+"name": "example.com",
+"tags": ["proxy_nginx"],
+"address":"192.168.149.61",
+"port": 2375,
+"checks":[
+{
+"http":"http://192.168.149.61:2375/info",
+"interval":"5s"
+}
+]
+}
+}
+ ```
