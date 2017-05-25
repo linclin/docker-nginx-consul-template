@@ -41,15 +41,13 @@ server {
 }
 
 {{ range $service := services }}
-
-{{ if eq $service.Tags "proxy_nginx" }} 
-
+ 
 upstream {{ $service.Name }} {
-         
+        {{ range $serviceItem := service $service.Name }}
+ 
+        server {{ $serviceItem.Address }}:{{ $serviceItem.Port }};
 
-        server {{ $service.Address }}:{{ $service.Port }};
-
-        
+        {{ end }}
 }
 
 {{ $is_https := env "IS_HTTPS" }}
@@ -57,14 +55,14 @@ upstream {{ $service.Name }} {
 
 {{ $cert := env "CERT" }}
 server {
-        server_name {{ $server.Name  }};
+        server_name {{ $service.Name  }};
         listen 80;
         access_log /var/log/nginx/access.log vhost;
         return 301 https://$host$request_uri;
 }
 
 server {
-        server_name {{ $server.Name }};
+        server_name {{ $service.Name | regexReplaceAll "(-)" "."}};
         listen 443 ssl http2;
         access_log /var/log/nginx/access.log vhost;
 
@@ -81,18 +79,21 @@ server {
         add_header Strict-Transport-Security "max-age=31536000";
 
         location / {
-                proxy_pass http://{{ $server.Name }};
+                proxy_pass http://{{ $service.Name }};
         }
 }
 {{ else }}
 server {
-        server_name {{ $server.Name }};
+        server_name {{ $service.Name | regexReplaceAll "(-)" "."}};
         listen 80;
         access_log /var/log/nginx/access.log vhost;
 
         location / {
-                proxy_pass http://{{ $server.Name }};
+                proxy_pass http://{{ $service.Name }};
+                proxy_connect_timeout 3s;
+                proxy_read_timeout 3s;
         }
 }
-{{ end }}{{ end }}{{ end }}{{ end }}
-
+{{ end }}
+{{ end }}  
+  

@@ -10,13 +10,7 @@ This solution is intended to be used with [Swarm Mode](https://docs.docker.com/e
 When requirements are satisfied, run this:
 
 ```bash
-docker run -d \
-    --privileged \
-    --restart always \
-    --name proxy \
-    -p 80:80 \
-    -e CONSUL_ADDR={consul IP} \
-    docker-nginx-consul-template 
+sudo docker run -d --privileged  --restart always  --name proxy  -p 80:80  -e CONSUL_ADDR={consul IP}  192.168.151.252/library/nginx-consul-template 
 ```
 
 An image exposes as 80, as 443(https)
@@ -52,9 +46,9 @@ services:
 ```json
 {
 "service": {
-"name": "example.com",
-"tags": ["proxy_nginx"],
-"address":"192.168.149.61",
+"name": "example-com",
+"tags": [""],
+"address":"example-com-service",
 "port": 2375,
 "checks":[
 {
@@ -65,3 +59,5 @@ services:
 }
 }
  ```
+
+ 

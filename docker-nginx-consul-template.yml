@@ -2,8 +2,18 @@ version: '3'
 services:
   nginx:
     image: 192.168.151.252/library/nginx-consul-template
+    privileged: true
+    labels:
+      service: "proxy"
     ports:
-      - 80:80 
+      - "80:80"
+    networks:
+      - proxy
+    environment:
+      CONSUL_ADDR: 192.168.18.31
+      CONSUL_PORT: 8500
+      IS_HTTPS: 0
+      CERT: proxy
     deploy:
       mode: global 
       restart_policy:
@@ -14,6 +24,8 @@ services:
       update_config:
         parallelism: 1
         delay: 30s 
-    
+networks:
+  proxy:
+    driver: overlay   
 
-
+docker service create --replicas 2 --network proxy_proxy --name nginx5  nginx
