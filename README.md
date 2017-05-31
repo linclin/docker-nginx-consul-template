@@ -29,8 +29,16 @@ version: '3'
 services:
   nginx:
     image: 192.168.151.252/library/nginx-consul-template
+    labels: [service=proxy]
     ports:
-      - 80:80 
+      - "80:80" 
+     networks:
+      - proxy
+    environment:
+      CONSUL_ADDR: 192.168.18.31
+      CONSUL_PORT: 8500
+      IS_HTTPS: 0
+      CERT: proxy
     deploy:
       mode: global 
       restart_policy:
@@ -41,6 +49,10 @@ services:
       update_config:
         parallelism: 1
         delay: 30s 
+    networks:
+        proxy:
+          driver: overlay   
+
 ```
 ### Consul services
 ```json
@@ -60,4 +72,18 @@ services:
 }
  ```
 
+docker stack deploy -c docker-consul.yml consul
+
+docker service create --replicas 2 --network proxy_proxy --name nginx1  nginx
+
+
+### CMD Create consul&nginx service
+docker network create --driver overlay   consul
  
+docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true,"skip_leave_on_interrupt": true}' --name consul_server --network consul   --publish  mode=host,target=8500,published=8500    --mode global --constraint 'node.role == manager'   consul agent -server -datacenter=wh-test -ui -bootstrap-expect=3  -client=0.0.0.0     -retry-join=consul_server -retry-join=consul_server -retry-join=consul_server  -retry-interval=5s -rejoin -disable-host-node-id  
+
+docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true,"skip_leave_on_interrupt": true}' --publish  mode=host,target=8500,published=8500 --mode global --network consul --name consul_agent --constraint 'node.role != manager' consul agent -retry-join=consul_server retry-interval=5s -rejoin -client 0.0.0.0 -disable-host-node-id 
+ 
+docker network create --driver overlay   proxy
+
+docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.151.252/library/nginx-consul-template

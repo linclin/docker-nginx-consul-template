@@ -46,40 +46,8 @@ services:
       -  -retry-join=consul_server
       -  -retry-interval=5s
       -  -rejoin
-  nginx:
-    image: 192.168.151.252/library/nginx-consul-template 
-    labels:
-      service: "proxy"
-    ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host  
-    networks:
-      - proxy
-      - consul
-    environment:
-      CONSUL_ADDR: consul_server
-      CONSUL_PORT: 8500
-      IS_HTTPS: 0
-      CERT: proxy
-    deploy:
-      mode: global 
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
-      update_config:
-        parallelism: 1
-        delay: 30s 
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 networks:
-  proxy:
-    driver: overlay   
   consul:
-    driver: overlay
+    driver: overlay   
+
+
