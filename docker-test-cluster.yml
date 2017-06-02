@@ -1,0 +1,85 @@
+version: '3.2'
+services:
+  nginx_php:
+    image: 192.168.151.252/test/centos7_nginx-php:latest   
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/hosts:/etc/hosts
+      - /data/www:/data
+    domainname:  
+      - m.juanpi.com
+      - mapi.juanpi.com
+    privileged: true
+    networks:
+       proxy_nginx:
+       cluster:
+         aliases:
+           - nginx_php
+    deploy:
+      mode: replicated
+      replicas: 2 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s   
+  java:
+    image: 192.168.151.252/test/centos_java:latest  
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/hosts:/etc/hosts
+      - /data/www:/data 
+    privileged: true
+    networks:
+        proxy_nginx:
+        cluster:
+          aliases:
+            - java 
+    deploy:
+      mode: replicated
+      replicas: 2 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s   
+  java_kafka:
+    image: 192.168.151.252/test/javatest:latest 
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/hosts:/etc/hosts
+      - /data/www:/data 
+    privileged: true
+    networks:
+        proxy_nginx:
+        cluster:
+          aliases:
+            - java_kafka  
+    deploy:
+      mode: replicated
+      replicas: 2 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
+networks:
+  proxy_nginx: 
+    external: true 
+  cluster: 
+    driver: overlay  
