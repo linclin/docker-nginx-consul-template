@@ -4,6 +4,7 @@ services:
     image: 192.168.151.252/library/consul:0.8.3
     labels:
       service: "consul_server"
+    domain:m.juanpi.com
     ports:
       - target: 8500
         published: 8500
@@ -49,14 +50,14 @@ services:
   nginx:
     image: 192.168.151.252/library/nginx-consul-template:1.13.1 
     labels:
-      service: "proxy"
+      service: "proxy_nginx"
     ports:
       - target: 80
         published: 80
         protocol: tcp
         mode: host  
     networks:
-      - proxy
+      - nginx
       - consul
     environment:
       CONSUL_ADDR: consul_server
@@ -74,7 +75,7 @@ services:
         parallelism: 1
         delay: 30s  
 networks:
-  proxy:
+  nginx:
     driver: overlay   
   consul:
     driver: overlay

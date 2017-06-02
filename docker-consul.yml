@@ -1,9 +1,9 @@
 version: '3.2'
 services:
   consul_server:
-    image: consul 
+    image: 192.168.151.252/library/consul:0.8.3
     labels:
-      service: "consul_server"
+      service: "consul_server" 
     ports:
       - target: 8500
         published: 8500
@@ -46,8 +46,46 @@ services:
       -  -retry-join=consul_server
       -  -retry-interval=5s
       -  -rejoin
+  consul_agent:
+    image: 192.168.151.252/library/consul:0.8.3
+    labels:
+      service: "consul_agent" 
+    ports:
+      - target: 8500
+        published: 8501
+        protocol: tcp
+        mode: host  
+    networks:
+      - consul
+    environment:
+      CONSUL_BIND_INTERFACE: "eth0"
+      CONSUL_LOCAL_CONFIG: '{"leave_on_terminate": true,"skip_leave_on_interrupt": true}'
+    deploy:
+      mode: global 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
+      placement:
+        constraints:
+          - node.role != manager
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8500"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    entrypoint:
+      -  docker-entrypoint.sh
+      -   agent 
+      -  -client=0.0.0.0 
+      -  -disable-host-node-id 
+      -  -retry-join=consul_server 
+      -  -retry-interval=5s
+      -  -rejoin
 networks:
   consul:
     driver: overlay   
-
-
