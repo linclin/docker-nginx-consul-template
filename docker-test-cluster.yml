@@ -1,25 +1,28 @@
 version: '3.2'
 services:
-  nginx_php:
-    image: 192.168.151.252/test/centos7_nginx-php:latest   
+  m-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest   
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /etc/resolv.conf:/etc/resolv.conf
-      - /etc/hosts:/etc/hosts
-      - /data/www:/data
-    domainname:  
-      - m.juanpi.com
-      - mapi.juanpi.com
-    privileged: true
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir:  /data/htdocs/mjuanpi
+    dc_multiple_cluster:  true 
+    dc_domainname:  m.juanpi.org  
+    dc_gopub_id:222  
+    environment:
+      DC_CONSUL: "" 
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: ""
+    extra_hosts:
+      - "test.juanpi.com:1.1.1.1" 
     networks:
-       proxy_nginx:
-       cluster:
-         aliases:
-           - nginx_php
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - m-juanpi-com
     deploy:
       mode: replicated
-      replicas: 2 
+      replicas: 1 
       restart_policy:
         condition: on-failure
         delay: 5s
@@ -27,49 +30,18 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s   
-  java:
-    image: 192.168.151.252/test/centos_java:latest  
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /etc/resolv.conf:/etc/resolv.conf
-      - /etc/hosts:/etc/hosts
-      - /data/www:/data 
-    privileged: true
-    networks:
-        proxy_nginx:
-        cluster:
-          aliases:
-            - java 
-    deploy:
-      mode: replicated
-      replicas: 2 
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
-      update_config:
-        parallelism: 1
-        delay: 30s   
-  java_kafka:
+        delay: 30s  
+  zookeeper_kafka:
     image: 192.168.151.252/test/javatest:latest 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /etc/resolv.conf:/etc/resolv.conf
-      - /etc/hosts:/etc/hosts
-      - /data/www:/data 
-    privileged: true
-    networks:
-        proxy_nginx:
+    networks: 
         cluster:
           aliases:
-            - java_kafka  
+            - zookeeper_kafka  
     deploy:
       mode: replicated
-      replicas: 2 
+      replicas: 1 
       restart_policy:
         condition: on-failure
         delay: 5s
@@ -77,8 +49,31 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s 
+        delay: 30s  
+  order-service:
+    image: 192.168.151.252/test/centos_java:latest  
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir:  /data/order-service
+    networks: 
+        cluster:
+          aliases:
+            - order-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s   
+
 networks:
+  proxy_consul: 
+    external: true
   proxy_nginx: 
     external: true 
   cluster: 

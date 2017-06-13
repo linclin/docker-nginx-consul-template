@@ -24,6 +24,7 @@ An image exposes as 80, as 443(https)
 
 ### docker stack
 ```bash
+mkdir -p /data/swarm_consul/config && mkdir -p /data/swarm_consul/data && chmod 777 -R /data/swarm_consul/
 docker stack deploy -c docker-nginx-consul-template.yml  proxy 
 ```
  

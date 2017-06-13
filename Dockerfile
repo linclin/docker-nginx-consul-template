@@ -2,7 +2,7 @@
 FROM nginx:1.13.1-alpine
 
 MAINTAINER Linc "13579443@qq.com" 
-
+ENV LC_ALL en_US.UTF-8，ENV TZ=Asia/Shanghai
 RUN apk add  --no-cache  --update --virtual tobedeleted  unzip; \
     apk add --no-cache  --update  curl bash tree tzdata   ; \
     echo "Asia/Shanghai" > /etc/timezone ; \

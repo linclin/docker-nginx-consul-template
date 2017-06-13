@@ -2,9 +2,10 @@ version: '3.2'
 services:
   consul_server:
     image: 192.168.151.252/library/consul:0.8.3
+    volumes:
+      - /data/swarm_consul:/consul
     labels:
-      service: "consul_server"
-    domain:m.juanpi.com
+      service: "consul_server" 
     ports:
       - target: 8500
         published: 8500
@@ -44,8 +45,8 @@ services:
       -  -disable-host-node-id 
       -  -retry-join=consul_server
       -  -retry-join=consul_server
-      -  -retry-join=consul_server
-      -  -retry-interval=5s
+      -  -retry-join=consul_server   
+      -  -retry-interval=5s 
       -  -rejoin
   nginx:
     image: 192.168.151.252/library/nginx-consul-template:1.13.1 
