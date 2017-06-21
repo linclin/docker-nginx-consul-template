@@ -3,22 +3,20 @@ services:
   m-juanpi-com:
     image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest   
     volumes:
-      - /etc/localtime:/etc/localtime:ro 
-    dc_container_dir:  /data/htdocs/mjuanpi
-    dc_multiple_cluster:  true 
-    dc_domainname:  m.juanpi.org  
-    dc_gopub_id:222  
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/m.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  m.juanpi.com
+    dc_gopub_id: 222
     environment:
       DC_CONSUL: "" 
       DC_NGINXDOMAINAME: ""
-      DC_NGINXROOT: ""
-    extra_hosts:
-      - "test.juanpi.com:1.1.1.1" 
+      DC_NGINXROOT: "/data/htdocs/m.juanpi.com/Public"
     networks:
       proxy_nginx:
       proxy_consul:
       cluster:
-        aliases:
+        aliases: 
           - m-juanpi-com
     deploy:
       mode: replicated
@@ -30,15 +28,1317 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s  
-  zookeeper_kafka:
-    image: 192.168.151.252/test/javatest:latest 
+        delay: 30s
+  mapi-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/mapi.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  mapi.juanpi.com
+    dc_gopub_id: 119
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/mapi.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - mapi-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  muser-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/muser.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  muser.juanpi.com
+    dc_gopub_id: 120
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/muser.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - muser-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  mtrade-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/mtrade.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  mtrade.juanpi.com
+    dc_gopub_id: 118
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/mtrade.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - mtrade-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  tuan-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/tuan.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname: tuan.juanpi.com
+    dc_gopub_id: 178
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/tuan.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - tuan-juanpi-com
+          - tuan.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  pay-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/pay.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  pay.juanpi.com
+    dc_gopub_id: 10
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/pay.juanpi.com/public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - pay-juanpi-com
+          - api.pay.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  cart-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/cart.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  cart.juanpi.com
+    dc_gopub_id: 221
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/www.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - cart-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  api-scf-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/scf.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  api-scf.juanpi.com
+    dc_gopub_id: 372
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/supply-chain-finance/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - api-scf-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  bankroll-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/bankroll.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname: bankroll.juanpi.org
+    dc_gopub_id: 65
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/bankroll.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - bankroll-juanpi-org
+          - api.bankroll.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  finance-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/finance.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  finance.juanpi.org
+    dc_gopub_id: 43
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/finance.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - finance-juanpi-org
+          - api.finance.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  scf-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/scf.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  scf.juanpi.org
+    dc_gopub_id: 372
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/supply-chain-finance/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - scf-juanpi-org
+          - api.scf.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  1230c339d15cad-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/1230c339d15cad.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  1230c339d15cad.juanpi.org
+    dc_gopub_id: 239
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/1230c339d15cad.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - 1230c339d15cad-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  7469a5f913d2-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/7469a5f913d2.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  7469a5f913d2.juanpi.org
+    dc_gopub_id: 19
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/7469a5f913d2.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - 7469a5f913d2-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  837090d05d34a16mkt-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/837090d05d34a16mkt.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  837090d05d34a16mkt.juanpi.org
+    dc_gopub_id: 93
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/837090d05d34a16mkt.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - 837090d05d34a16mkt-juanpi-org
+          - 837090d05d34a16mkt.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  b9603b9ece8b-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/b9603b9ece8b.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  b9603b9ece8b.juanpi.org
+    dc_gopub_id: 4
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/b9603b9ece8b.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - b9603b9ece8b-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  brand-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/brand.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  brand.juanpi.com
+    dc_gopub_id: 221
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/www.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - brand-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  c20c39d15cad-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/c20c39d15cad.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  c20c39d15cad.juanpi.org
+    dc_gopub_id: 74
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/INDEX"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - c20c39d15cad-juanpi-org
+          - c20c39d15cad.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  chat-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/chat.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  chat.juanpi.com
+    dc_gopub_id: 484
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/im.seller/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - chat-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  finance-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/finance.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  finance.juanpi.com
+    dc_gopub_id: 422
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/finance.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - finance-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  hezuo-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/hezuo.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  hezuo.juanpi.com
+    dc_gopub_id: 350
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/seller.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - hezuo-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  jas-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/jas.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  jas.juanpi.com
+    dc_gopub_id: 119
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/mapi.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - jas-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  mact-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/mact.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  mact.juanpi.com
+    dc_gopub_id: 7
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/act.juancdn.com"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - mact-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  open-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/open.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  open.juanpi.com
+    dc_gopub_id: 412
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/open.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - open-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  pad-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/pad.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  pad.juanpi.com
+    dc_gopub_id: 224
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/pad.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - pad-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  pay-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/pay.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  pay.juanpi.org
+    dc_gopub_id: 82
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/pay.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - pay-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  seller-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/seller.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  seller.juanpi.com
+    dc_gopub_id: 350
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/seller.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - seller-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  settlement-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/settlement.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  settlement.juanpi.org
+    dc_gopub_id: 63
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/settlement/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - settlement-juanpi-org
+          - api.settlement.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  shop-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/shop.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  shop.juanpi.com
+    dc_gopub_id: 221
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/www.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - shop-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  user-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/user.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  user.juanpi.com
+    dc_gopub_id: 221
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/www.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - user-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  www-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/www.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  www.juanpi.com
+    dc_gopub_id: 221
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/www.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - www-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  wx-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/wx.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  wx.juanpi.com
+    dc_gopub_id: 223
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/wx.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - wx-juanpi-com
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  cs-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/cs.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  cs.juanpi.org
+    dc_gopub_id: 76
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/cs.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - cs-juanpi-org
+          - cs.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  goods-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/goods.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  goods.juanpi.org
+    dc_gopub_id: 260
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/goods.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - goods-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  goods-buy-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/goods-buy.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  goods-buy.juanpi.org
+    dc_gopub_id: 246
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/goods-buy.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - goods-buy-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  mcs-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/mcs.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  mcs.juanpi.org
+    dc_gopub_id: 76
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/cs.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - mcs-juanpi-org
+          - mcs1.juanpi.jp
+          - mcs2.juanpi.jp
+          - mcs.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  order-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/order.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  order.juanpi.org
+    dc_gopub_id: 49
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/order.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - order-juanpi-org
+          - order.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  sapi-juanpi-com:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/sapi.juanpi.com
+    dc_multiple_cluster: true
+    dc_domainname:  sapi.juanpi.com
+    dc_gopub_id: 300
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/sapi.juanpi.com/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - sapi-juanpi-com
+          - sapi.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  scm-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/scm.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  scm.juanpi.org
+    dc_gopub_id: 157
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/scm.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - scm-juanpi-org
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  invoice-juanpi-org:
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    dc_container_dir: /data/htdocs/invoice.juanpi.org
+    dc_multiple_cluster: true
+    dc_domainname:  invoice.juanpi.org
+    dc_gopub_id: 276
+    environment:
+      DC_CONSUL: ""
+      DC_NGINXDOMAINAME: ""
+      DC_NGINXROOT: "/data/htdocs/invoice.juanpi.org/Public"
+    networks:
+      proxy_nginx:
+      proxy_consul:
+      cluster:
+        aliases:
+          - invoice-juanpi-org
+          - api-invoice.juanpi.jp
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  zookeeper-kafka:
+    image: docker pull 192.168.151.252/test/centos7_kafka-zookeeper:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+        cluster:
+          aliases:
+            - zookeeper-kafka
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+  dubbo-zookeeper:
+    image: 192.168.151.252/test/centos7-dubbo-zookeeper-supervisor:latest 
     volumes:
       - /etc/localtime:/etc/localtime:ro
     networks: 
         cluster:
           aliases:
-            - zookeeper_kafka  
+            - dubbo-zookeeper  
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  proxy-core:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/proxy-core
+    networks: 
+        cluster:
+          aliases:
+            - proxy-core 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-processor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-processor
+    dc_gopub_id: 295
+    networks: 
+        cluster:
+          aliases:
+            - cart-processor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-service
+    dc_gopub_id: 313
+    networks: 
+        cluster:
+          aliases:
+            - cart-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-limit-buy:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-limit-buy
+    dc_gopub_id: 315
+    networks: 
+        cluster:
+          aliases:
+            - cart-limit-buy 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-mgn-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-mgn-service
+    dc_gopub_id: 316
+    networks: 
+        cluster:
+          aliases:
+            - cart-mgn-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-job:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-job       
+    networks: 
+        cluster:
+          aliases:
+            - cart-job 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  cart-domain:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/cart-domain
+    dc_gopub_id: 314
+    networks: 
+        cluster:
+          aliases:
+            - cart-domain 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  order-processor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-processor
+    dc_gopub_id: 505 
+    networks: 
+        cluster:
+          aliases:
+            - order-processor 
     deploy:
       mode: replicated
       replicas: 1 
@@ -51,10 +1351,11 @@ services:
         parallelism: 1
         delay: 30s  
   order-service:
-    image: 192.168.151.252/test/centos_java:latest  
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
-    dc_container_dir:  /data/order-service
+    dc_container_dir: /data/order-service
+    dc_gopub_id: 308
     networks: 
         cluster:
           aliases:
@@ -69,8 +1370,724 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s   
-
+        delay: 30s  
+  order-job:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-job
+    networks: 
+        cluster:
+          aliases:
+            - order-job 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  order-facade:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-facade
+    dc_gopub_id: 387
+    networks: 
+        cluster:
+          aliases:
+            - order-facade 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  order-writeOldDB:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-writeOldDB
+    networks: 
+        cluster:
+          aliases:
+            - order-writeOldDB 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  order-nvwastone:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-nvwastone
+    networks: 
+        cluster:
+          aliases:
+            - order-nvwastone 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  kafka-http-proxy:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/kafka-http-proxy
+    dc_gopub_id: 406
+    networks: 
+        cluster:
+          aliases:
+            - kafka-http-proxy 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  order-domain:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/order-domain
+    dc_gopub_id: 309
+    networks: 
+        cluster:
+          aliases:
+            - order-domain 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-processor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-processor
+    dc_gopub_id: 505
+    networks: 
+        cluster:
+          aliases:
+            - goods-processor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-service
+    dc_gopub_id: 354
+    networks: 
+        cluster:
+          aliases:
+            - goods-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-domainloader:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-domainloader
+    dc_gopub_id: 323
+    networks: 
+        cluster:
+          aliases:
+            - goods-domainloader 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-task:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-task
+    networks: 
+        cluster:
+          aliases:
+            - goods-task 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-tools:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-tools
+    networks: 
+        cluster:
+          aliases:
+            - goods-tools 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-web-tools:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-web-tools
+    networks: 
+        cluster:
+          aliases:
+            - goods-web-tools 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  goods-domain:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/goods-domain
+    dc_gopub_id: 322
+    networks: 
+        cluster:
+          aliases:
+            - goods-domain 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-processor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-processor
+    dc_gopub_id: 248
+    networks: 
+        cluster:
+          aliases:
+            - mkt-processor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-mgn-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-mgn-service
+    dc_gopub_id: 344
+    networks: 
+        cluster:
+          aliases:
+            - mkt-mgn-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-domain:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-domain
+    dc_gopub_id: 301
+    networks: 
+        cluster:
+          aliases:
+            - mkt-domain 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-jobs:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-jobs
+    networks: 
+        cluster:
+          aliases:
+            - mkt-jobs 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-event-data:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-event-data
+    networks: 
+        cluster:
+          aliases:
+            - mkt-event-data 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-service
+    dc_gopub_id: 303
+    networks: 
+        cluster:
+          aliases:
+            - mkt-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-domainloader:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-domainloader
+    dc_gopub_id: 302
+    networks: 
+        cluster:
+          aliases:
+            - mkt-domainloader 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  mkt-event-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/mkt-event-service
+    networks: 
+        cluster:
+          aliases:
+            - mkt-event-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  member-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/member-service
+    dc_gopub_id: 307
+    networks: 
+        cluster:
+          aliases:
+            - member-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  member-dbexecutor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/member-dbexecutor
+    networks: 
+        cluster:
+          aliases:
+            - member-dbexecutor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  member-domain:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/member-domain
+    dc_gopub_id: 305
+    networks: 
+        cluster:
+          aliases:
+            - member-domain 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  member-job:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/member-job
+    networks: 
+        cluster:
+          aliases:
+            - member-job 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  member-processor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/member-processor
+    dc_gopub_id: 306
+    networks: 
+        cluster:
+          aliases:
+            - member-processor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  favorites-command:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/favorites-command
+    dc_gopub_id: 317
+    networks: 
+        cluster:
+          aliases:
+            - favorites-command 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  favorites-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/favorites-service
+    dc_gopub_id: 318
+    networks: 
+        cluster:
+          aliases:
+            - favorites-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  favgoods-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/favgoods-service
+    networks: 
+        cluster:
+          aliases:
+            - favgoods-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  db-executor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/db-executor
+    networks: 
+        cluster:
+          aliases:
+            - db-executor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  task-center:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/task-center
+    networks: 
+        cluster:
+          aliases:
+            - task-center 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  config-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/config-service
+    networks: 
+        cluster:
+          aliases:
+            - config-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  config-manager:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/config-manager
+    networks: 
+        cluster:
+          aliases:
+            - config-manager 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  solrexecutor:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/solrexecutor
+    networks: 
+        cluster:
+          aliases:
+            - solrexecutor 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s  
+  pintuan-service:
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
+    dc_container_dir: /data/pintuan-service
+    networks: 
+        cluster:
+          aliases:
+            - pintuan-service 
+    deploy:
+      mode: replicated
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s              
 networks:
   proxy_consul: 
     external: true
