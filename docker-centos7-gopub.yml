@@ -1,0 +1,59 @@
+version: '3.2'
+services:
+  gopub-src:
+    image: 192.168.151.252/library/centos7-gopub-src
+    labels:
+      service: "gopub-src" 
+    ports:
+      - target: 8092
+        published: 8092
+        protocol: tcp  
+    networks:
+      - proxy_nginx
+      - gopub 
+    deploy:
+      mode: replicated 
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
+      placement:
+        constraints:
+          - node.role == manager
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8092"]
+      interval: 30s
+      timeout: 10s
+      retries: 3 
+   mysql:
+    image: 192.168.151.252/library/mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456    
+    labels:
+      service: "gopub-mysql"   
+    networks:
+      - gopub 
+    deploy:
+      mode: replicated 
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s 
+      placement:
+        constraints:
+          - node.role = manager 
+networks:
+  proxy_nginx: 
+    external: true 
+  gopub:
+    driver: overlay   
