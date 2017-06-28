@@ -6,7 +6,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/m.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  m.juanpi.com
+    dc_domainname:  m.juanpi.org
     dc_gopub_id: 222
     environment:
       DC_CONSUL: "" 
@@ -35,7 +35,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mapi.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  mapi.juanpi.com
+    dc_domainname:  mapi.juanpi.org
     dc_gopub_id: 119
     environment:
       DC_CONSUL: ""
@@ -64,7 +64,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/muser.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  muser.juanpi.com
+    dc_domainname:  muser.juanpi.org
     dc_gopub_id: 120
     environment:
       DC_CONSUL: ""
@@ -93,7 +93,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mtrade.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  mtrade.juanpi.com
+    dc_domainname:  mtrade.juanpi.org
     dc_gopub_id: 118
     environment:
       DC_CONSUL: ""
@@ -122,7 +122,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/tuan.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname: tuan.juanpi.com
+    dc_domainname: tuan.juanpi.org
     dc_gopub_id: 178
     environment:
       DC_CONSUL: ""
@@ -152,7 +152,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/pay.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  pay.juanpi.com
+    dc_domainname:  pay.juanpi.org
     dc_gopub_id: 10
     environment:
       DC_CONSUL: ""
@@ -182,7 +182,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/cart.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  cart.juanpi.com
+    dc_domainname:  cart.juanpi.org
     dc_gopub_id: 221
     environment:
       DC_CONSUL: ""
@@ -211,7 +211,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scf.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  api-scf.juanpi.com
+    dc_domainname:  api-scf.juanpi.org
     dc_gopub_id: 372
     environment:
       DC_CONSUL: ""
@@ -270,7 +270,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/finance.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  finance.juanpi.org
+    dc_domainname:  org.finance.juanpi.org
     dc_gopub_id: 43
     environment:
       DC_CONSUL: ""
@@ -300,7 +300,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scf.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  scf.juanpi.org
+    dc_domainname:  org.scf.juanpi.org
     dc_gopub_id: 372
     environment:
       DC_CONSUL: ""
@@ -330,7 +330,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/1230c339d15cad.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  1230c339d15cad.juanpi.org
+    dc_domainname:  org.1230c339d15cad.juanpi.org
     dc_gopub_id: 239
     environment:
       DC_CONSUL: ""
@@ -359,7 +359,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/7469a5f913d2.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  7469a5f913d2.juanpi.org
+    dc_domainname:  org.7469a5f913d2.juanpi.org
     dc_gopub_id: 19
     environment:
       DC_CONSUL: ""
@@ -388,7 +388,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/837090d05d34a16mkt.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  837090d05d34a16mkt.juanpi.org
+    dc_domainname:  org.837090d05d34a16mkt.juanpi.org
     dc_gopub_id: 93
     environment:
       DC_CONSUL: ""
@@ -418,7 +418,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/b9603b9ece8b.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  b9603b9ece8b.juanpi.org
+    dc_domainname:  org.b9603b9ece8b.juanpi.org
     dc_gopub_id: 4
     environment:
       DC_CONSUL: ""
@@ -447,7 +447,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/brand.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  brand.juanpi.com
+    dc_domainname:  brand.juanpi.org
     dc_gopub_id: 221
     environment:
       DC_CONSUL: ""
@@ -476,7 +476,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/c20c39d15cad.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  c20c39d15cad.juanpi.org
+    dc_domainname:  org.c20c39d15cad.juanpi.org
     dc_gopub_id: 74
     environment:
       DC_CONSUL: ""
@@ -506,7 +506,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/chat.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  chat.juanpi.com
+    dc_domainname:  chat.juanpi.org
     dc_gopub_id: 484
     environment:
       DC_CONSUL: ""
@@ -535,7 +535,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/finance.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  finance.juanpi.com
+    dc_domainname:  finance.juanpi.org
     dc_gopub_id: 422
     environment:
       DC_CONSUL: ""
@@ -564,7 +564,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/hezuo.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  hezuo.juanpi.com
+    dc_domainname:  hezuo.juanpi.org
     dc_gopub_id: 350
     environment:
       DC_CONSUL: ""
@@ -593,7 +593,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/jas.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  jas.juanpi.com
+    dc_domainname:  jas.juanpi.org
     dc_gopub_id: 119
     environment:
       DC_CONSUL: ""
@@ -622,7 +622,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mact.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  mact.juanpi.com
+    dc_domainname:  mact.juanpi.org
     dc_gopub_id: 7
     environment:
       DC_CONSUL: ""
@@ -651,7 +651,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/open.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  open.juanpi.com
+    dc_domainname:  open.juanpi.org
     dc_gopub_id: 412
     environment:
       DC_CONSUL: ""
@@ -680,7 +680,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/pad.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  pad.juanpi.com
+    dc_domainname:  pad.juanpi.org
     dc_gopub_id: 224
     environment:
       DC_CONSUL: ""
@@ -709,7 +709,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/pay.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  pay.juanpi.org
+    dc_domainname:  org.pay.juanpi.org
     dc_gopub_id: 82
     environment:
       DC_CONSUL: ""
@@ -738,7 +738,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/seller.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  seller.juanpi.com
+    dc_domainname:  seller.juanpi.org
     dc_gopub_id: 350
     environment:
       DC_CONSUL: ""
@@ -767,7 +767,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/settlement.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  settlement.juanpi.org
+    dc_domainname:  org.settlement.juanpi.org
     dc_gopub_id: 63
     environment:
       DC_CONSUL: ""
@@ -797,7 +797,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/shop.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  shop.juanpi.com
+    dc_domainname:  shop.juanpi.org
     dc_gopub_id: 221
     environment:
       DC_CONSUL: ""
@@ -826,7 +826,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/user.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  user.juanpi.com
+    dc_domainname:  user.juanpi.org
     dc_gopub_id: 221
     environment:
       DC_CONSUL: ""
@@ -855,7 +855,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/www.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  www.juanpi.com
+    dc_domainname:  www.juanpi.org
     dc_gopub_id: 221
     environment:
       DC_CONSUL: ""
@@ -884,7 +884,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/wx.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  wx.juanpi.com
+    dc_domainname:  wx.juanpi.org
     dc_gopub_id: 223
     environment:
       DC_CONSUL: ""
@@ -913,7 +913,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/cs.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  cs.juanpi.org
+    dc_domainname:  org.cs.juanpi.org
     dc_gopub_id: 76
     environment:
       DC_CONSUL: ""
@@ -943,7 +943,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/goods.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  goods.juanpi.org
+    dc_domainname:  org.goods.juanpi.org
     dc_gopub_id: 260
     environment:
       DC_CONSUL: ""
@@ -972,7 +972,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/goods-buy.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  goods-buy.juanpi.org
+    dc_domainname:  org.goods-buy.juanpi.org
     dc_gopub_id: 246
     environment:
       DC_CONSUL: ""
@@ -1001,7 +1001,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mcs.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  mcs.juanpi.org
+    dc_domainname:  org.mcs.juanpi.org
     dc_gopub_id: 76
     environment:
       DC_CONSUL: ""
@@ -1033,7 +1033,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/order.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  order.juanpi.org
+    dc_domainname:  org.order.juanpi.org
     dc_gopub_id: 49
     environment:
       DC_CONSUL: ""
@@ -1063,7 +1063,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/sapi.juanpi.com
     dc_multiple_cluster: true
-    dc_domainname:  sapi.juanpi.com
+    dc_domainname:  sapi.juanpi.org
     dc_gopub_id: 300
     environment:
       DC_CONSUL: ""
@@ -1093,7 +1093,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scm.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  scm.juanpi.org
+    dc_domainname:  org.scm.juanpi.org
     dc_gopub_id: 157
     environment:
       DC_CONSUL: ""
@@ -1122,7 +1122,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/invoice.juanpi.org
     dc_multiple_cluster: true
-    dc_domainname:  invoice.juanpi.org
+    dc_domainname:  org.invoice.juanpi.org
     dc_gopub_id: 276
     environment:
       DC_CONSUL: ""
@@ -1189,6 +1189,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/proxy-core
+    dc_gopub_id: 612
     networks: 
         cluster:
           aliases:
@@ -1292,7 +1293,8 @@ services:
     image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
-    dc_container_dir: /data/cart-job       
+    dc_container_dir: /data/cart-job
+    dc_gopub_id: 613
     networks: 
         cluster:
           aliases:
@@ -1376,6 +1378,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-job
+    dc_gopub_id: 622
     networks: 
         cluster:
           aliases:
@@ -1417,6 +1420,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-writeOldDB
+    dc_gopub_id: 615
     networks: 
         cluster:
           aliases:
@@ -1437,6 +1441,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-nvwastone
+    dc_gopub_id: 616
     networks: 
         cluster:
           aliases:
@@ -1562,6 +1567,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-task
+    dc_gopub_id: 617
     networks: 
         cluster:
           aliases:
@@ -1582,6 +1588,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-tools
+    dc_gopub_id: 628
     networks: 
         cluster:
           aliases:
@@ -1706,6 +1713,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-jobs
+    dc_gopub_id: 627
     networks: 
         cluster:
           aliases:
@@ -1726,6 +1734,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-event-data
+    dc_gopub_id: 626
     networks: 
         cluster:
           aliases:
@@ -1788,6 +1797,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-event-service
+    dc_gopub_id: 506
     networks: 
         cluster:
           aliases:
@@ -1829,6 +1839,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-dbexecutor
+    dc_gopub_id: 625
     networks: 
         cluster:
           aliases:
@@ -1870,6 +1881,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-job
+    dc_gopub_id: 624
     networks: 
         cluster:
           aliases:
@@ -1953,6 +1965,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/favgoods-service
+    dc_gopub_id: 623
     networks: 
         cluster:
           aliases:
@@ -1973,6 +1986,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/db-executor
+    dc_gopub_id: 621
     networks: 
         cluster:
           aliases:
@@ -2053,6 +2067,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/solrexecutor
+    dc_gopub_id: 311
     networks: 
         cluster:
           aliases:
@@ -2073,6 +2088,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/pintuan-service
+    dc_gopub_id: 618
     networks: 
         cluster:
           aliases:
