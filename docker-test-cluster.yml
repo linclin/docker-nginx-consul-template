@@ -2007,6 +2007,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/task-center
+    dc_gopub_id: 655
     networks: 
         cluster:
           aliases:
@@ -2023,10 +2024,11 @@ services:
         parallelism: 1
         delay: 30s  
   config-service:
-    image: 192.168.151.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/java-tomcat-image-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/config-service
+    dc_gopub_id: 654
     networks: 
         cluster:
           aliases:
@@ -2047,6 +2049,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/config-manager
+    dc_gopub_id: 643
     networks: 
         cluster:
           aliases:
