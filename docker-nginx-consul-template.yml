@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   consul_server:
-    image: 192.168.151.252/library/consul:0.8.5
+    image: 192.168.19.252/library/consul:0.8.5
     volumes:
       - /data/swarm_consul:/consul
     labels:
@@ -49,7 +49,7 @@ services:
       -  -retry-interval=5s 
       -  -rejoin
   nginx:
-    image: 192.168.151.252/library/nginx-consul-template:1.13.1 
+    image: 192.168.19.252/library/nginx-consul-template:1.13.1 
     labels:
       service: "proxy_nginx"
     ports:

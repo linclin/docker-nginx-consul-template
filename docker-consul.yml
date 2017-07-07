@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   consul_server:
-    image: 192.168.151.252/library/consul:0.8.3
+    image: 192.168.19.252/library/consul:0.8.3
     labels:
       service: "consul_server" 
     ports:
@@ -47,7 +47,7 @@ services:
       -  -retry-interval=5s
       -  -rejoin
   consul_agent:
-    image: 192.168.151.252/library/consul:0.8.3
+    image: 192.168.19.252/library/consul:0.8.3
     labels:
       service: "consul_agent" 
     ports:

@@ -10,7 +10,7 @@ This solution is intended to be used with [Swarm Mode](https://docs.docker.com/e
 When requirements are satisfied, run this:
 
 ```bash
-sudo docker run -d --privileged  --restart always  --name proxy  -p 80:80  -e CONSUL_ADDR={consul IP}  192.168.151.252/library/nginx-consul-template 
+sudo docker run -d --privileged  --restart always  --name proxy  -p 80:80  -e CONSUL_ADDR={consul IP}  192.168.19.252/library/nginx-consul-template 
 ```
 
 An image exposes as 80, as 443(https)
@@ -50,5 +50,5 @@ docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"
  
 docker network create --driver overlay   proxy
 
-docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.151.252/library/nginx-consul-template
+docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.19.252/library/nginx-consul-template
 ```

@@ -1,4 +1,4 @@
-#sudo docker build --no-cache -t  192.168.151.252/library/nginx-consul-template .
+#sudo docker build --no-cache -t  192.168.19.252/library/nginx-consul-template .
 FROM nginx:1.13.1-alpine
 
 MAINTAINER Linc "13579443@qq.com" 

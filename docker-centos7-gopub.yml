@@ -1,13 +1,11 @@
 version: '3.2'
 services:
   gopub-src:
-    image: 192.168.151.252/library/centos7-gopub-src
+    image: 192.168.19.252/library/centos7-gopub-src
     labels:
       service: "gopub-src" 
     ports:
-      - target: 8092
-        published: 8092
-        protocol: tcp  
+      - 8092: 8092  
     networks:
       - proxy_nginx
       - gopub 
@@ -31,7 +29,7 @@ services:
       timeout: 10s
       retries: 3 
    mysql:
-    image: 192.168.151.252/library/mysql:5.7
+    image: 192.168.19.252/library/mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=123456    
     labels:
