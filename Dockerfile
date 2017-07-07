@@ -1,5 +1,5 @@
 #sudo docker build --no-cache -t  192.168.19.252/library/nginx-consul-template .
-FROM nginx:1.13.1-alpine
+FROM nginx:1.13.2-alpine
 
 MAINTAINER Linc "13579443@qq.com" 
 ENV LC_ALL en_US.UTF-8，ENV TZ=Asia/Shanghai
