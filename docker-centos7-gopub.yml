@@ -5,7 +5,8 @@ services:
     labels:
       service: "gopub-src" 
     ports:
-      - 8092: 8092  
+      - 8092: 8092 
+      - 12306: 22  
     networks:
       - proxy_nginx
       - gopub 
