@@ -1,18 +1,16 @@
 version: '3.2'
 services:
-  gopub-src:
-    image: 192.168.19.252/library/centos7-gopub-src
+  mysql:
+    image: 192.168.19.252/library/mysql:5.7
     labels:
-      service: "gopub-src" 
-    ports:
-      - 8192: 8192 
-      - 12306: 22  
+      service: "gopub-mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456 
     networks:
-      - proxy_nginx
-      - gopub 
+      - gopub
     deploy:
-      mode: replicated 
-      replicas: 1 
+      mode: replicated
+      replicas: 1
       restart_policy:
         condition: on-failure
         delay: 5s
@@ -20,39 +18,42 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s 
+        delay: 30s
+      placement:
+        constraints:
+          - node.role == manager 
+  gopub-src:
+    image: 192.168.19.252/test/centos7-gopub-src:latest 
+    labels:
+      service: "gopub-src"
+    ports:
+      - target: 8192
+        published: 8192
+        protocol: tcp
+    networks:
+      - proxy_nginx
+      - gopub
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
       placement:
         constraints:
           - node.role == manager
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8092"]
+      test: ["CMD", "curl", "-f", "http://localhost:8192"]
       interval: 30s
       timeout: 10s
-      retries: 3 
-   mysql:
-    image: 192.168.19.252/library/mysql:5.7
-    environment:
-      - MYSQL_ROOT_PASSWORD=123456    
-    labels:
-      service: "gopub-mysql"   
-    networks:
-      - gopub 
-    deploy:
-      mode: replicated 
-      replicas: 1 
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
-      update_config:
-        parallelism: 1
-        delay: 30s 
-      placement:
-        constraints:
-          - node.role = manager 
+      retries: 3
 networks:
-  proxy_nginx: 
-    external: true 
+  proxy_nginx:
+    external: true
   gopub:
-    driver: overlay   
+    driver: overlay
