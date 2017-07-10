@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  mysql:
+  mysql: 
     image: 192.168.19.252/library/mysql:5.7
     labels:
       service: "gopub-mysql"
@@ -20,10 +20,10 @@ services:
         parallelism: 1
         delay: 30s
       placement:
-        constraints:
+        constraints: 
           - node.role == manager 
   gopub-src:
-    image: 192.168.19.252/test/centos7-gopub-src:latest 
+    image: 192.168.19.252/test/centos7-gopub-src:latest  
     labels:
       service: "gopub-src"
     ports:
