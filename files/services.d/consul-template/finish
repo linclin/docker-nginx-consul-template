@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#/bin/true
+consul-template -consul-addr="$CONSUL_ADDR:$CONSUL_PORT" -consul-retry -log-level=debug  -max-stale=10m -retry=10s -consul-retry-attempts=5 -wait=5s -template="/etc/nginx/nginx.ctmpl:/etc/nginx/conf.d/default.conf:nginx -s reload || true" 

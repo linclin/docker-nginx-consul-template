@@ -1,0 +1,5 @@
+#!/bin/sh
+# Sleep 3sec to allow nignx to start before changing the config again
+
+#sleep 3
+consul-template -consul-addr="$CONSUL_ADDR:$CONSUL_PORT" -consul-retry  -consul-retry-attempts=5 -max-stale=10m -retry=10s -wait=5s -template="/etc/nginx/nginx.ctmpl:/etc/nginx/conf.d/default.conf:nginx -s reload || true" 

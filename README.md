@@ -31,7 +31,8 @@ docker stack deploy -c docker-nginx-consul-template.yml  proxy
  
 ### Consul services
 ```bash
-curl -X PUT -d '{"id": "example-com","name": "example-com","address": "nginx1","port": 80,"tags": ["dev"]}' http://192.168.149.61:8500/v1/agent/service/register
+curl -X PUT -d '{"id": "test1.m.juanpi.org","name": "test1.m.juanpi.org","address": "test1-m-juanpi-com","port": 80,"tags": ["swarmkit-service","domain"]}' http://192.168.149.61:8500/v1/agent/service/register
+ 
 ```
 ```bash
 docker stack deploy -c docker-consul.yml consul
@@ -48,7 +49,7 @@ docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"
 
 docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"leave_on_terminate": true,"skip_leave_on_interrupt": true}' --publish  mode=host,target=8500,published=8500 --mode global --network consul --name consul_agent --constraint 'node.role != manager' consul agent -retry-join=consul_server retry-interval=5s -rejoin -client 0.0.0.0 -disable-host-node-id 
  
-docker network create --driver overlay   proxy
+docker network create --driver overlay   proxy_nginx
 
 docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.19.252/library/nginx-consul-template
 ```
