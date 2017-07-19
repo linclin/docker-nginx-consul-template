@@ -52,4 +52,5 @@ docker service create -e 'CONSUL_BIND_INTERFACE=eth0' -e 'CONSUL_LOCAL_CONFIG={"
 docker network create --driver overlay   proxy_nginx
 
 docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.19.252/library/nginx-consul-template
+ 
 ```
