@@ -53,4 +53,8 @@ docker network create --driver overlay   proxy_nginx
 
 docker service create -e 'CONSUL_ADDR=consul_server' -e 'CONSUL_PORT=8500' -e 'IS_HTTPS=0' -e 'CERT=proxy' --publish  mode=host,target=80,published=80 --mode global --network consul --network proxy --name proxy_nginx   192.168.19.252/library/nginx-consul-template
  
+docker service create  --network proxy_consul --name registrator  --mode global  gliderlabs/registrator:latest  agent -retry-join=consul_server retry-interval=5s -rejoin -client 0.0.0.0 -disable-host-node-id  
+
+
+docker run -d   --name=registrator  --net=host  --restart=always  --volume=/var/run/docker.sock:/tmp/docker.sock  gliderlabs/registrator:latest  consul://127.0.0.1:8500
 ```

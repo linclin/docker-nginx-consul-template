@@ -117,7 +117,7 @@ services:
         window: 120s
       update_config:
         parallelism: 1
-        delay: 30s  
+        delay: 30s           
 networks:
   nginx:
     driver: overlay   
