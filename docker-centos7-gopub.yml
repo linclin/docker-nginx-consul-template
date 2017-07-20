@@ -26,6 +26,9 @@ services:
     image: 192.168.19.252/test/centos7-gopub-src:latest  
     labels:
       service: "gopub-src"
+    extra_hosts:       
+      - gitlab.juanpi.org:192.168.162.66
+      - jenkins.juanpi.org:192.168.143.41
     ports:
       - "8192:8192"
       - "12306:22"
