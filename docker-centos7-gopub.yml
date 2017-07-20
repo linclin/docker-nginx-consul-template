@@ -29,6 +29,8 @@ services:
     extra_hosts:       
       - gitlab.juanpi.org:192.168.162.66
       - jenkins.juanpi.org:192.168.143.41
+      - packagist.juanpi.org:192.168.162.66
+      - toran.juanpi.org:192.168.162.66
     ports:
       - "8192:8192"
       - "12306:22"
@@ -48,12 +50,7 @@ services:
         delay: 30s
       placement:
         constraints:
-          - node.role == manager
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8192"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
+          - node.role == manager 
 networks:
   proxy_nginx:
     external: true
