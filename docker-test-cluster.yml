@@ -1,10 +1,9 @@
 version: '3.2'
 services:
   m-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest   
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest   
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: m.juanpi.com
     dc_container_dir: /data/htdocs/m.juanpi.com
     dc_multiple_cluster: true
     dc_domainname:  m.juanpi.org
@@ -31,10 +30,9 @@ services:
         parallelism: 1
         delay: 30s
   mapi-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: mapi.juanpi.com
     dc_container_dir: /data/htdocs/mapi.juanpi.com
     dc_multiple_cluster: true
     dc_domainname:  mapi.juanpi.org
@@ -61,10 +59,9 @@ services:
         parallelism: 1
         delay: 30s
   muser-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: muser.juanpi.com
     dc_container_dir: /data/htdocs/muser.juanpi.com
     dc_multiple_cluster: true
     dc_domainname:  muser.juanpi.org
@@ -91,10 +88,9 @@ services:
         parallelism: 1
         delay: 30s
   mtrade-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: mtrade.juanpi.com
     dc_container_dir: /data/htdocs/mtrade.juanpi.com
     dc_multiple_cluster: true
     dc_domainname:  mtrade.juanpi.org
@@ -121,10 +117,9 @@ services:
         parallelism: 1
         delay: 30s
   tuan-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: tuan.juanpi.com
     dc_container_dir: /data/htdocs/tuan.juanpi.com
     dc_multiple_cluster: true
     dc_domainname: tuan.juanpi.org
@@ -152,10 +147,9 @@ services:
         parallelism: 1
         delay: 30s
   pay-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    domainname: pay.juanpi.com
     dc_container_dir: /data/htdocs/pay.juanpi.com
     dc_multiple_cluster: true
     dc_domainname:  pay.juanpi.org
@@ -183,7 +177,7 @@ services:
         parallelism: 1
         delay: 30s
   cart-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/cart.juanpi.com
@@ -212,7 +206,7 @@ services:
         parallelism: 1
         delay: 30s
   api-scf-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scf.juanpi.org
@@ -241,7 +235,7 @@ services:
         parallelism: 1
         delay: 30s
   bankroll-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/bankroll.juanpi.org
@@ -271,7 +265,7 @@ services:
         parallelism: 1
         delay: 30s
   finance-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/finance.juanpi.org
@@ -301,7 +295,7 @@ services:
         parallelism: 1
         delay: 30s
   scf-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scf.juanpi.org
@@ -331,7 +325,7 @@ services:
         parallelism: 1
         delay: 30s
   1230c339d15cad-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/1230c339d15cad.juanpi.org
@@ -360,7 +354,7 @@ services:
         parallelism: 1
         delay: 30s
   7469a5f913d2-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/7469a5f913d2.juanpi.org
@@ -389,7 +383,7 @@ services:
         parallelism: 1
         delay: 30s
   837090d05d34a16mkt-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/837090d05d34a16mkt.juanpi.org
@@ -419,7 +413,7 @@ services:
         parallelism: 1
         delay: 30s
   b9603b9ece8b-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/b9603b9ece8b.juanpi.org
@@ -448,7 +442,7 @@ services:
         parallelism: 1
         delay: 30s
   brand-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/brand.juanpi.com
@@ -477,7 +471,7 @@ services:
         parallelism: 1
         delay: 30s
   c20c39d15cad-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/c20c39d15cad.juanpi.org
@@ -507,7 +501,7 @@ services:
         parallelism: 1
         delay: 30s
   chat-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/chat.juanpi.com
@@ -536,7 +530,7 @@ services:
         parallelism: 1
         delay: 30s
   finance-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/finance.juanpi.com
@@ -565,7 +559,7 @@ services:
         parallelism: 1
         delay: 30s
   hezuo-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/hezuo.juanpi.com
@@ -594,7 +588,7 @@ services:
         parallelism: 1
         delay: 30s
   jas-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/jas.juanpi.com
@@ -623,7 +617,7 @@ services:
         parallelism: 1
         delay: 30s
   mact-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mact.juanpi.com
@@ -652,7 +646,7 @@ services:
         parallelism: 1
         delay: 30s
   open-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/open.juanpi.com
@@ -681,7 +675,7 @@ services:
         parallelism: 1
         delay: 30s
   pad-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/pad.juanpi.com
@@ -710,7 +704,7 @@ services:
         parallelism: 1
         delay: 30s
   pay-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/pay.juanpi.org
@@ -739,7 +733,7 @@ services:
         parallelism: 1
         delay: 30s
   seller-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/seller.juanpi.com
@@ -768,7 +762,7 @@ services:
         parallelism: 1
         delay: 30s
   settlement-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/settlement.juanpi.org
@@ -798,7 +792,7 @@ services:
         parallelism: 1
         delay: 30s
   shop-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/shop.juanpi.com
@@ -827,7 +821,7 @@ services:
         parallelism: 1
         delay: 30s
   user-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/user.juanpi.com
@@ -856,7 +850,7 @@ services:
         parallelism: 1
         delay: 30s
   www-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/www.juanpi.com
@@ -885,7 +879,7 @@ services:
         parallelism: 1
         delay: 30s
   wx-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/wx.juanpi.com
@@ -914,7 +908,7 @@ services:
         parallelism: 1
         delay: 30s
   cs-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/cs.juanpi.org
@@ -944,7 +938,7 @@ services:
         parallelism: 1
         delay: 30s
   goods-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/goods.juanpi.org
@@ -973,7 +967,7 @@ services:
         parallelism: 1
         delay: 30s
   goods-buy-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/goods-buy.juanpi.org
@@ -1002,7 +996,7 @@ services:
         parallelism: 1
         delay: 30s
   mcs-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/mcs.juanpi.org
@@ -1034,7 +1028,7 @@ services:
         parallelism: 1
         delay: 30s
   order-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/order.juanpi.org
@@ -1064,7 +1058,7 @@ services:
         parallelism: 1
         delay: 30s
   sapi-juanpi-com:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/sapi.juanpi.com
@@ -1094,7 +1088,7 @@ services:
         parallelism: 1
         delay: 30s
   scm-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/scm.juanpi.org
@@ -1123,7 +1117,7 @@ services:
         parallelism: 1
         delay: 30s
   invoice-juanpi-org:
-    image: 192.168.19.252/test/centos7-nginx-php-supervisor:latest
+    image: 192.168.151.252/test/centos7-nginx-php-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     dc_container_dir: /data/htdocs/invoice.juanpi.org
@@ -1153,10 +1147,11 @@ services:
         parallelism: 1
         delay: 30s
   zookeeper-kafka:
-    image: docker pull 192.168.19.252/test/centos7_kafka-zookeeper:latest
+    image: docker pull 192.168.151.252/test/centos7_kafka-zookeeper:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro
     networks:
+        proxy_nginx:
         cluster:
           aliases:
             - zookeeper-kafka
@@ -1172,10 +1167,11 @@ services:
         parallelism: 1
         delay: 30s
   dubbo-zookeeper:
-    image: 192.168.19.252/test/centos7-dubbo-zookeeper-supervisor:latest 
+    image: 192.168.151.252/test/centos7-dubbo-zookeeper-supervisor:latest 
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - dubbo-zookeeper  
@@ -1191,12 +1187,13 @@ services:
         parallelism: 1
         delay: 30s  
   proxy-core:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/proxy-core
     dc_gopub_id: 612
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - proxy-core 
@@ -1212,12 +1209,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-processor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-processor
     dc_gopub_id: 295
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-processor 
@@ -1233,12 +1231,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-service
     dc_gopub_id: 313
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-service 
@@ -1254,12 +1253,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-limit-buy:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-limit-buy
     dc_gopub_id: 315
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-limit-buy 
@@ -1275,12 +1275,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-mgn-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-mgn-service
     dc_gopub_id: 316
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-mgn-service 
@@ -1296,12 +1297,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-job:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-job
     dc_gopub_id: 613
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-job 
@@ -1317,12 +1319,13 @@ services:
         parallelism: 1
         delay: 30s  
   cart-domain:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/cart-domain
     dc_gopub_id: 314
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - cart-domain 
@@ -1338,12 +1341,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-processor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-processor
     dc_gopub_id: 505 
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-processor 
@@ -1359,12 +1363,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-service
     dc_gopub_id: 308
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-service 
@@ -1380,12 +1385,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-job:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-job
     dc_gopub_id: 622
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-job 
@@ -1401,12 +1407,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-facade:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-facade
     dc_gopub_id: 387
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-facade 
@@ -1422,12 +1429,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-writeOldDB:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-writeOldDB
     dc_gopub_id: 615
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-writeOldDB 
@@ -1443,12 +1451,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-nvwastone:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-nvwastone
     dc_gopub_id: 616
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-nvwastone 
@@ -1464,12 +1473,13 @@ services:
         parallelism: 1
         delay: 30s  
   kafka-http-proxy:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/kafka-http-proxy
     dc_gopub_id: 406
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - kafka-http-proxy 
@@ -1485,12 +1495,13 @@ services:
         parallelism: 1
         delay: 30s  
   order-domain:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/order-domain
     dc_gopub_id: 309
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - order-domain 
@@ -1506,12 +1517,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-processor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-processor
     dc_gopub_id: 505
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-processor 
@@ -1527,12 +1539,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-service
     dc_gopub_id: 354
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-service 
@@ -1548,12 +1561,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-domainloader:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-domainloader
     dc_gopub_id: 323
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-domainloader 
@@ -1569,12 +1583,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-task:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-task
     dc_gopub_id: 617
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-task 
@@ -1590,12 +1605,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-tools:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-tools
     dc_gopub_id: 628
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-tools 
@@ -1611,11 +1627,12 @@ services:
         parallelism: 1
         delay: 30s  
   goods-web-tools:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-web-tools
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-web-tools 
@@ -1631,12 +1648,13 @@ services:
         parallelism: 1
         delay: 30s  
   goods-domain:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/goods-domain
     dc_gopub_id: 322
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - goods-domain 
@@ -1652,12 +1670,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-processor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-processor
     dc_gopub_id: 248
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-processor 
@@ -1673,12 +1692,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-mgn-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-mgn-service
     dc_gopub_id: 344
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-mgn-service 
@@ -1694,12 +1714,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-domain:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-domain
     dc_gopub_id: 301
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-domain 
@@ -1715,12 +1736,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-jobs:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-jobs
     dc_gopub_id: 627
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-jobs 
@@ -1736,12 +1758,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-event-data:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-event-data
     dc_gopub_id: 626
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-event-data 
@@ -1757,12 +1780,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-service
     dc_gopub_id: 303
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-service 
@@ -1778,12 +1802,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-domainloader:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-domainloader
     dc_gopub_id: 302
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-domainloader 
@@ -1799,12 +1824,13 @@ services:
         parallelism: 1
         delay: 30s  
   mkt-event-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/mkt-event-service
     dc_gopub_id: 506
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - mkt-event-service 
@@ -1820,12 +1846,13 @@ services:
         parallelism: 1
         delay: 30s  
   member-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-service
     dc_gopub_id: 307
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - member-service 
@@ -1841,12 +1868,13 @@ services:
         parallelism: 1
         delay: 30s  
   member-dbexecutor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-dbexecutor
     dc_gopub_id: 625
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - member-dbexecutor 
@@ -1862,12 +1890,13 @@ services:
         parallelism: 1
         delay: 30s  
   member-domain:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-domain
     dc_gopub_id: 305
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - member-domain 
@@ -1883,12 +1912,13 @@ services:
         parallelism: 1
         delay: 30s  
   member-job:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-job
     dc_gopub_id: 624
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - member-job 
@@ -1904,12 +1934,13 @@ services:
         parallelism: 1
         delay: 30s  
   member-processor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/member-processor
     dc_gopub_id: 306
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - member-processor 
@@ -1925,12 +1956,13 @@ services:
         parallelism: 1
         delay: 30s  
   favorites-command:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/favorites-command
     dc_gopub_id: 317
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - favorites-command 
@@ -1946,12 +1978,13 @@ services:
         parallelism: 1
         delay: 30s  
   favorites-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/favorites-service
     dc_gopub_id: 318
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - favorites-service 
@@ -1967,12 +2000,13 @@ services:
         parallelism: 1
         delay: 30s  
   favgoods-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/favgoods-service
     dc_gopub_id: 623
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - favgoods-service 
@@ -1988,12 +2022,13 @@ services:
         parallelism: 1
         delay: 30s  
   db-executor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/db-executor
     dc_gopub_id: 621
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - db-executor 
@@ -2009,12 +2044,13 @@ services:
         parallelism: 1
         delay: 30s  
   task-center:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/task-center
     dc_gopub_id: 655
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - task-center 
@@ -2030,12 +2066,13 @@ services:
         parallelism: 1
         delay: 30s  
   config-service:
-    image: 192.168.19.252/test/java-tomcat-image-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/config-service
     dc_gopub_id: 654
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - config-service 
@@ -2051,12 +2088,13 @@ services:
         parallelism: 1
         delay: 30s  
   config-manager:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/java-tomcat-image-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/config-manager
     dc_gopub_id: 643
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - config-manager 
@@ -2072,12 +2110,13 @@ services:
         parallelism: 1
         delay: 30s  
   solrexecutor:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/solrexecutor
     dc_gopub_id: 311
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - solrexecutor 
@@ -2093,12 +2132,13 @@ services:
         parallelism: 1
         delay: 30s  
   pintuan-service:
-    image: 192.168.19.252/test/centos7-java-supervisor:latest
+    image: 192.168.151.252/test/centos7-java-supervisor:latest
     volumes:
       - /etc/localtime:/etc/localtime:ro 
     dc_container_dir: /data/pintuan-service
     dc_gopub_id: 618
-    networks: 
+    networks:
+        proxy_nginx:
         cluster:
           aliases:
             - pintuan-service 

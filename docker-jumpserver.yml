@@ -1,0 +1,53 @@
+version: '3.2'
+services:
+  mysql: 
+    image: 192.168.19.252/library/mysql:5.7
+    labels:
+      service: "gopub-mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456 
+    networks:
+      - jumpserver
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+      placement:
+        constraints: 
+          - node.role == manager 
+  juanpi-jumpserver:
+    image: 192.168.19.252/test/juanpi-jumpserver:0.3.2  
+    labels:
+      service: "juanpi-jumpserver" 
+    ports:
+      - "81:80"
+      - "12306:22"
+    networks:
+      - proxy_nginx
+      - jumpserver
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s
+      placement:
+        constraints:
+          - node.role == manager 
+networks:
+  proxy_nginx:
+    external: true
+  jumpserver:
+    driver: overlay
